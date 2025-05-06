@@ -9,7 +9,7 @@ const app = express();
 // CORS setup
 const allowedOrigins = [
   'http://localhost:5173',        
-  'https://your-frontend.vercel.app'
+  'https://pery-ahhhoahhv-kartachenas-projects.vercel.app/'
 ];
 
 app.use(cors({
