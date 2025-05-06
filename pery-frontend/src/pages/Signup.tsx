@@ -1,7 +1,6 @@
 import LeftPanel from "@/components/LeftPanel";
 import FAQButton from "@/components/FAQButton";
 import { useState } from "react";
-import React from "react";
 import { useAppStore } from "@/store/useAppStore";
 import { useNavigate } from "react-router-dom";
 import { useSignupMutation } from "@/hooks/useSignupMutation";
