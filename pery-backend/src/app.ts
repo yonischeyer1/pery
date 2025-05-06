@@ -9,7 +9,7 @@ const app = express();
 // CORS setup
 const allowedOrigins = [
   'http://localhost:5173',        
-  'https://pery.vercel.app/'
+  'https://pery.vercel.app'
 ];
 
 app.use(cors({
