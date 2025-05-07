@@ -11,7 +11,7 @@ export default function Signup() {
   const setEmailGlobal = useAppStore((s) => s.setEmail);
   const setToken = useAppStore((s) => s.setToken);
   const setLanguage = useAppStore((s) => s.setLanguage);
-  
+
   const { mutate: signup } = useSignupMutation();
 
   const handleContinue = () => {
@@ -21,7 +21,7 @@ export default function Signup() {
         onSuccess: (data) => {
           setEmailGlobal(email);
           setToken(data.token);
-          if(data.language) {
+          if (data.language) {
             setLanguage(data.language)
             navigate("/topic");
           } else {
@@ -33,9 +33,9 @@ export default function Signup() {
   };
   return (
     <div className="flex flex-col md:flex-row min-h-screen">
-      <LeftPanel title="Welcome to Pery!" />
+      <LeftPanel breakAtWord="Welcome" title="Welcome to Pery!" />
 
-      <div className="flex-1 flex flex-col justify-center items-center p-6">
+      <div className="flex-1 flex flex-col justify-center pl-[4.3%] p-6">
         <div className="w-full max-w-md space-y-6">
           <div>
             <h2 className="text-xl font-semibold text-gray-800">MHE sign-up</h2>
@@ -54,8 +54,8 @@ export default function Signup() {
             </div>
           </div>
 
-          <button onClick={handleContinue} className="cursor-pointer w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
-            Continue →
+          <button onClick={handleContinue} className="w-[143px] h-[49px] rounded-[8px] cursor-pointer bg-color-primary text-white py-2 rounded hover:bg-blue-700 transition">
+            Continue &nbsp; &gt;
           </button>
 
           <p className="text-xs text-gray-400 text-center">

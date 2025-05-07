@@ -8,7 +8,6 @@ import { useSignupMutation } from "@/hooks/useSignupMutation";
 const LANGUAGES = [
     { code: "en", label: "English" },
     { code: "fr", label: "Français" },
-    { code: "he", label: "עברית" },
     { code: "es", label: "Español" },
 ];
 
@@ -36,9 +35,9 @@ export default function LanguageSelection() {
 
     return (
         <div className="flex flex-col md:flex-row min-h-screen">
-            <LeftPanel title="Choose Language" />
+            <LeftPanel breakAtWord="Welcome" title="Welcome to Pery!" />
 
-            <div className="flex-1 flex flex-col justify-center items-center p-6">
+            <div className="flex-1 flex flex-col justify-center pl-[4.3%] p-6">
                 <div className="w-full max-w-md space-y-6">
                     <div>
                         <h2 className="text-xl font-semibold text-gray-800">Select your preferred language</h2>
@@ -48,31 +47,44 @@ export default function LanguageSelection() {
                         {LANGUAGES.map((lang) => (
                             <label
                                 key={lang.code}
-                                className={`flex items-center border rounded-md px-4 py-2 cursor-pointer transition
-                  ${selected === lang.code
-                                        ? "border-blue-600 bg-blue-50"
+                                onClick={() => setSelected(lang.code)}
+                                className={`flex items-center  rounded-lg px-4 py-3 cursor-pointer transition
+                               ${selected === lang.code
+                                        ? "none"
                                         : "border-gray-300 hover:bg-gray-100"
                                     }`}
                             >
-                                <input
-                                    type="radio"
-                                    name="language"
-                                    value={lang.code}
-                                    checked={selected === lang.code}
-                                    onChange={() => setSelected(lang.code)}
-                                    className="form-radio text-blue-600 mr-3"
-                                />
-                                <span className="text-gray-800">{lang.label}</span>
+                                {/* Custom radio with checkmark */}
+                                <div
+                                    className={`w-5 h-5 mr-3 flex items-center justify-center rounded-full border-2
+                                   ${selected === lang.code ? "border-purple-600 bg-purple-600" : "border-gray-400"}`}
+                                >
+                                    {selected === lang.code && (
+                                        <svg
+                                            className="w-3 h-3 text-white"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="3"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    )}
+                                </div>
+
+                                <span className="text-gray-900 text-base">{lang.label}</span>
                             </label>
                         ))}
+
+
                     </form>
 
                     <button
                         onClick={handleContinue}
                         disabled={!selected}
-                        className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition disabled:opacity-50"
+                        className="w-[143px] h-[49px] rounded-[8px] cursor-pointer bg-color-primary text-white py-2 rounded hover:bg-blue-700 transition"
                     >
-                        Continue →
+                        Continue &nbsp; &gt;
                     </button>
                 </div>
             </div>
